@@ -1,2 +1,9 @@
 #!/bin/bash
 
+if [[ -f hello && $(stat -c "%U" hello) == "guillaume" ]];
+  chown betty hello
+  echo "File ownership changed from guillaume to betty."
+else
+  echo "File hello either doesn't exist or is not owned by guillaume."
+fi
+
